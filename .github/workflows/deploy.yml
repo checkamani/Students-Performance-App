@@ -1,9 +1,8 @@
-name: Deploy to Heroku
+name: deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
   deploy:
@@ -15,5 +14,6 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: "your-app-name"
-          heroku_email: "your-email@example.com"
+          heroku_app_name: students-performance-app
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          usedocker: false
